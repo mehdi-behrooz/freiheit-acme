@@ -1,0 +1,14 @@
+name: Lint
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  run-lint:
+    name: Run Lint
+    uses: mehdi-behrooz/freiheit-workflows/.github/workflows/lint.yaml@main

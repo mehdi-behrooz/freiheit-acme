@@ -1,0 +1,13 @@
+services:
+  freiheit-acme:
+    build: .
+    container_name: acme
+    restart: unless-stopped
+    volumes:
+      - ./output/.config/acme/:/config
+      - ./output/certs/:/install
+    environment:
+      - CF_Email=${CLOUDFLARE_EMAIL}
+      - CF_Key=${CLOUDFLARE_KEY}
+      - DOMAINS=${TEST_ACME_DOMAINS}
+      - DEBUG_LEVEL=2
