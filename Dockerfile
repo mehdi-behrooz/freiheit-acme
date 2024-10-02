@@ -32,8 +32,8 @@ VOLUME ["/install"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-HEALTHCHECK  --interval=15m \
-    --start-interval=5m \
-    --start-period=5m \
+HEALTHCHECK  --interval=30s \
+    --start-period=15m \
+    --start-interval=15s \
     CMD pgrep /usr/sbin/crond || exit 1
 
