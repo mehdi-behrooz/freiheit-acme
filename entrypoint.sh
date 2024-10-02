@@ -2,7 +2,6 @@
 
 if [[ -z $CF_Email || -z $CF_Key ]]; then
     echo "ERROR: Missing Cloudflare authentication info: CF_Email and CF_Key"
-    exec "$@"
     exit 1
 fi
 
@@ -22,4 +21,6 @@ done
 /usr/sbin/crond -l 8
 echo "Running crond successful."
 
-exec "$@"
+trap "exit" SIGTERM
+sleep infinity &
+wait

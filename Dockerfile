@@ -32,8 +32,6 @@ VOLUME ["/install"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["tail", "-f", "/dev/null"]
-
 HEALTHCHECK  --interval=15m \
     --start-interval=5m \
     --start-period=5m \
