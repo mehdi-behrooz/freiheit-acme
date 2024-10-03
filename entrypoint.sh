@@ -14,7 +14,8 @@ for domain in ${DOMAINS//,/ }; do
 
     /bin/acme --installcert -d "$domain" -d "*.$domain" \
         --fullchain-file "$ACME_CERT_INSTALL_DIR/$domain.acme.pem" \
-        --key-file "$ACME_CERT_INSTALL_DIR/$domain.acme.pem.key"
+        --key-file "$ACME_CERT_INSTALL_DIR/$domain.acme.pem.key" \
+        --debug "${DEBUG_LEVEL}"
 
 done
 
