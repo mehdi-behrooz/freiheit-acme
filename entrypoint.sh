@@ -7,7 +7,7 @@ fi
 
 /bin/acme --set-default-ca --server letsencrypt
 
-for domain in ${DOMAINS/,/ }; do
+for domain in ${DOMAINS//,/ }; do
 
     /bin/acme --issue -d "$domain" -d "*.$domain" \
         --dns dns_cf --debug "${DEBUG_LEVEL}"
